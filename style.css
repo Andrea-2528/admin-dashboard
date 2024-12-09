@@ -27,12 +27,24 @@
 
 .header{
     grid-column: 1/3;
+
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-row: 1fr 1fr;
 }
 
-.panel{
-
+.header-searchbar{
+    grid-area: 1/1/2/3;
 }
 
-.projects{
+.header-profile{
+    grid-area: 1/3/2/4;
+}
 
+.header-welcome{
+    grid-area: 2/1/3/2;
+}
+
+.header-buttons{
+    grid-area: 2/3/3/4;
 }
