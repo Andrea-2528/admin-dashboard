@@ -1,29 +1,70 @@
+/*-----------------------------------------------------------------------*/
+/*GENERAL RULES AND DEBUGGING*/
+
 *{
     margin: 0;
     padding: 0;
 }
 
 .main-page *{
-    border: 2px solid magenta;
+    border: 1px solid magenta;
 }
+
+/*-----------------------------------------------------------------------*/
+/*PAGE DIVISION IN LEFT AND RIGHT SIDE*/
 
 .main-page{
     height: 100vh;
     width: 100vw;
     display: grid;
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 1fr 5fr;
 }
+
+/*-----------------------------------------------------------------------*/
+/* SIDEBAR LAYOUT */
 
 .sidebar{
     display: grid;
     grid-template-rows: 1fr 5fr 3fr 1fr;
 }
 
+.sidebar-logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar-menu,
+.sidebar-settings{
+    align-content: center;
+}
+
+.sidebar-menu ul,
+.sidebar-settings ul{
+    list-style-type: none;
+    display: grid;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.sidebar-github{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*-----------------------------------------------------------------------*/
+/* PROJECTS, PANEL AND HEADER RATIOS */
+
 .main-window{
     display: grid;
-    grid-template-columns: 4fr 1fr;
-    grid-template-rows: 1fr 3fr;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 5fr;
 }
+
+/*-----------------------------------------------------------------------*/
+/* HEADER LAYOUT */
 
 .header{
     grid-column: 1/3;
@@ -35,6 +76,21 @@
 
 .header-searchbar{
     grid-area: 1/1/2/3;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.header-searchbar form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.header-searchbar > form > button{
+    border: none;
+    background-color: white;
 }
 
 .header-profile{
@@ -48,3 +104,22 @@
 .header-buttons{
     grid-area: 2/3/3/4;
 }
+
+/*-----------------------------------------------------------------------*/
+/* PROJECTS LAYOUT */
+
+.projects{
+    display: grid;
+    grid-template-rows: 1fr 12fr;
+}
+
+.cards{
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(2,1fr);
+}
+
+/*-----------------------------------------------------------------------*/
+/* PANEL LAYOUT */
+
+
