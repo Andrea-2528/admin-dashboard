@@ -1,28 +1,34 @@
 /*-----------------------------------------------------------------------*/
 /*GENERAL RULES AND DEBUGGING*/
 
+@font-face {
+    font-family: Oswald;
+    src: url(assets/Oswald/Oswald-VariableFont_wght.ttf);
+    font-weight: 200 700;
+    font-style: normal;
+}
+
 *{
     margin: 0;
     padding: 0;
+    /* border: 1px solid magenta; */
 }
 
 body{
+    font-family: "Oswald";
+    font-weight: 200;
+    font-size: 12px;
     width: 100vw;
     height: 100vh;
     align-content: center;
     justify-items: center;
     background-color: #0d131c;
-    /* background-image: radial-gradient(circle at -19% -76%, #a8dadcff 40%, transparent 40.05%),
+    color: #F5FBFB; /*default text color */
+    background-image: radial-gradient(circle at -19% -76%, #a8dadcff 40%, transparent 40.05%),
                     radial-gradient(circle at -19% 58%, #1d3557ff 43%, transparent 43.05%),
                     linear-gradient(220deg, #457b9dff 28%, transparent 28.05%),
                     linear-gradient(-48deg, #e63946ff 22%, transparent 22.05%),
-                    radial-gradient(circle at 97% 20%, #a8dadcff 35%, transparent 35.05%); */
-}
-
-.main-page *{
-    /* border: 1px solid magenta; */
-    color: #F5FBFB; /*default text color */
-    font-size: 1rem;
+                    radial-gradient(circle at 97% 20%, #a8dadcff 35%, transparent 35.05%);
 }
 
 svg{
@@ -38,7 +44,8 @@ svg{
     width: 97vw;
     box-shadow: 0px 0px 16px 2px black;
     border-radius: 40px;
-    background-color: #16202F;
+    background-color: #16202f50;
+    backdrop-filter: blur(40px);
     display: grid;
     grid-template-columns: 1fr 5fr;
 }
@@ -48,17 +55,28 @@ svg{
 
 .sidebar{
     display: grid;
-    grid-template-rows: 1fr 5fr 3fr 1fr;
-    background-color: #1d3557;
+    grid-template-rows: 2fr 5fr 3fr 1fr;
+    background-color: #1d355730;
+    backdrop-filter: blur(40px);
     border-top-left-radius: 40px;
     border-bottom-left-radius: 40px;
 }
 
 .sidebar-logo{
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 5%;
+}
+
+.sidebar-logo-text{
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.sidebar-logo > svg{
+    width: 5rem;
 }
 
 .sidebar-menu,
@@ -76,6 +94,8 @@ svg{
 }
 
 li{
+    font-size: 1rem;
+    font-weight: 400;
     background-color: #457b9d;
     border-top-right-radius: 40px;
     border-bottom-right-radius: 40px;
@@ -111,7 +131,7 @@ li:hover{
     display: grid;
     grid-template-columns: 3fr 1fr;
     grid-template-rows: 1fr 5fr;
-    border-left: 5px solid #141D29;
+    border-left: 5px solid #141d29bc;
 }
 
 /*-----------------------------------------------------------------------*/
@@ -119,14 +139,14 @@ li:hover{
 
 .header{
     grid-column: 1/3;
-    border-bottom: 5px solid #141D29;
+    border-bottom: 5px solid #141d29b5;
     display: grid;
     grid-template-columns: repeat(3,1fr);
     grid-row: 1fr 1fr;
 }
 
 .header-searchbar{
-    border-bottom: 5px solid #141D29;
+    border-bottom: 5px solid #141d29c1;
     grid-area: 1/1/2/3;
     display: flex;
     align-items: center;
@@ -142,10 +162,15 @@ li:hover{
 
 .header-searchbar > form > button > svg{
     width: 2rem;
-} 
+}
+
+.header-searchbar > form > button > svg:hover{
+    cursor: pointer;
+    fill: #E63946;
+}
 
 .header-searchbar > form > input{
-    background-color: #16202F;
+    background-color: #16202f7e;
     border: 2px solid #1D3557;
     border-radius: 40px;
     padding: 8px;
@@ -159,7 +184,7 @@ li:hover{
 
 .header-searchbar > form > button{
     border: none;
-    background-color: #16202F;
+    background-color: transparent;
 }
 
 .header-profile{
@@ -167,15 +192,21 @@ li:hover{
     display: flex;
     align-items: center;
     padding: 5px;
-    background-color: #1d3557;
+    background-color: #1d35574d;
+    backdrop-filter: blur(40px);
     border-top-right-radius: 40px;
-    border-bottom: 5px solid #141D29;
-    border-left: 5px solid #141D29;
+    border-bottom: 5px solid #141d29b2;
+    border-left: 5px solid #141d29b0;
 }
 
 .header-profile > svg{
     width: 2rem;
     margin-left: 3%;
+}
+
+.header-profile > svg:hover{
+    cursor: pointer;
+    fill: #E63946;
 }
 
 .header-profile-menu{
@@ -185,7 +216,7 @@ li:hover{
     justify-content: space-evenly;
     margin-left: 5%;
     padding: 8px;
-    background-color: #457B9D;
+    background-color: #457b9d;
     border-radius: 40px;
     border-bottom-right-radius: 0;
 }
@@ -205,6 +236,8 @@ li:hover{
     width: 100%;
     align-self: center;
     margin-left: 5%;
+    font-size: 180%;
+    font-weight: 500;
 }
 
 .header-welcome{
@@ -223,7 +256,6 @@ li:hover{
 }
 
 .header-welcome-message{
-    /* width: 100%; */
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -234,6 +266,11 @@ li:hover{
     padding-right: 20%;
 }
 
+.header-welcome-message > .message-name{
+    font-size: 120%;
+    font-weight: 400;
+}
+
 .header-buttons{
     grid-area: 2/3/3/4;
     display: flex;
@@ -242,9 +279,12 @@ li:hover{
 }
 
 .header-buttons button{
+    font-size: 120%;
+    color: #141D29;
+    font-weight: 700;
     text-align: center;
     width: 25%;
-    background-color: #A8DADC;
+    background-color: #a8dadc;
     padding: 8px;
     border: none;
     border-radius: 20px;
@@ -253,19 +293,18 @@ li:hover{
 
 .header-buttons button:hover{
     border: 3px solid #E63946;
+    background-color: #457B9D;
+    color: #EAF6F7;
 }
 
 /*-----------------------------------------------------------------------*/
 /* PROJECTS LAYOUT */
 
 .projects{
-    margin-right: 5px;
     display: grid;
     grid-template-rows: 1fr 14fr;
-    padding: 5px;
-    padding-bottom: 0;
-    padding-left: 0;
-    background-color: #1d3557;
+    padding-right: 5px;
+    background-color: #1d355755;
 }
 
 .projects-title{
@@ -290,7 +329,7 @@ li:hover{
     grid-template-rows: repeat(3, 1fr);
     grid-template-columns: repeat(2,1fr);
     padding: 5px;
-    background-color: #16202F;
+    background-color: #16202f72;
     border-radius: 0px 40px 0px 0px;
 }
 
@@ -300,13 +339,29 @@ li:hover{
     display: grid;
     grid-template-rows: 1fr 2fr;
     grid-template-columns: 1fr 1fr;
-    background-color: #1D3557;
+    background-color: #1d355780;
     border-radius: 20px;
-    box-shadow: 100px 0px 0px -84px #E63946 inset;
+    box-shadow: 100px 0px 0px -84px #457B9D inset;
+}
+
+.card:hover{
+    cursor: pointer;
+    box-shadow: 0px 0px 0px 4px #E63946, 100px 0px 0px -84px #e63946 inset;
+}
+
+.card-title{
+    margin-left: 20%;
+    padding-top: 8px;
+    font-size: 1.2rem;
+    font-weight: 500;
 }
 
 .card-text{
-    grid-column: 1/3
+    grid-column: 1/3;
+    font-size: 0.9rem;
+    font-weight: 300;
+    margin-left: 10%;
+    padding-right: 10%;
 }
 
 .icons{
@@ -321,13 +376,18 @@ li:hover{
     width: 1.5rem;
     margin: 2%;
 }
+
+.icons > svg:hover{
+    fill: #E63946;
+    cursor: pointer;
+}
 /*-----------------------------------------------------------------------*/
 /* PANEL LAYOUT */
 
 .panel{
-    background-color: #1d3557;
+    background-color: #1d35575d;
     border-bottom-right-radius: 40px;
-    border-left: 5px solid #141D29;
+    border-left: 5px solid #141d29a5;
     display: grid;
     grid-template-rows: 1fr 1fr;
     padding: 5px;
@@ -338,9 +398,22 @@ li:hover{
 .announcements{
     display: grid;
     grid-template-rows: 1fr 8fr;
-    padding: 5px;
-    padding-left: 0;
     margin-left: 1px;
+}
+
+.title{
+    font-size: 1.6rem;
+    font-weight: 400;
+    margin-left: 1rem;
+    text-decoration-line: underline;
+    text-decoration-style: double;
+    text-decoration-color: #457b9d;
+    text-decoration-thickness: 2px;
+}
+
+.title:hover{
+    cursor: pointer;
+    text-decoration-color: #E63946;
 }
 
 .announcements-elements{
@@ -355,16 +428,25 @@ li:hover{
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    background-color: #457B9D;
+    background-color: #457b9d7a;
     border-radius: 0px 40px 40px 0px;
     padding: 8px;
+    padding-left: 16px;
+}
+
+
+.element > p:first-child {
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.element > p:last-child{
+    font-size: 0.9rem;
 }
 
 .trending{
     display: grid;
     grid-template-rows: 1fr 8fr;
-    padding: 5px;
-    padding-left: 0;
     margin-left: 1px;
 }
 
@@ -379,7 +461,7 @@ li:hover{
 .users > .element{
     display: flex;
     gap: 1rem;
-    background-color: #457B9D;
+    background-color: #457B9D7a;
     border-radius: 0px 40px 40px 0px;
     padding: 8px;
 }
@@ -389,4 +471,20 @@ li:hover{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+}
+
+.username{
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.user-project{
+    font-size: 0.9rem;
+}
+
+.element:hover{
+    color: #141D29;
+    box-shadow: 0px 0px 0px 3px #E63946 inset;
+    cursor: pointer;
+    background-color: #A8DADC;
 }
